@@ -6,6 +6,9 @@ let total = document.getElementById('totalCount')
 let interviewCount = document.getElementById('interviewCount')
 let rejectCount = document.getElementById('rejectCount')
 
+let allFilterBtn = document.getElementById('all-filter-btn')
+let interviewFilterBtn = document.getElementById('interview-filter-btn')
+let rejectFilterBtn = document.getElementById('reject-filter-btn')
 
 const allSection = document.getElementById('allSection')
 const mainContainer = document.querySelector('main')
@@ -23,6 +26,20 @@ calculateCount()
 // Toggling of the featured three buttons 
 
 function toggleStyle(id){
+    
+    allFilterBtn.classList.add('bg-white','text-black')
+    interviewFilterBtn.classList.add('bg-white','text-black')
+    rejectFilterBtn.classList.add('bg-white','text-black')
+
+    allFilterBtn.classList.remove('bg-blue-600','text-white')
+    interviewFilterBtn.classList.remove('bg-blue-600','text-white')
+    rejectFilterBtn.classList.remove('bg-blue-600','text-white')
+
+    const selected = document.getElementById(id)
+
+    selected.classList.remove('bg-white','text-black')
+    selected.classList.add('bg-blue-600','text-white')
+
 
     currentStatus = id
 
