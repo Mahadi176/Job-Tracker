@@ -31,12 +31,12 @@
                     <h2  id="totalCount" class="text-black font-bold">0</h2>
                 </div>
                 <div class=" bg-white max-w-75 p-5">
-                    <p>InterView</p>
-                    <h2 id="interViewCount" class="text-green-600 font-bold">0</h2>
+                    <p>Interview</p>
+                    <h2 id="interviewCount" class="text-green-600 font-bold">0</h2>
                 </div>
                 <div class=" bg-white max-w-75 p-5">
                     <p>Rejected</p>
-                    <h2 id="rejectedCount" class="text-red-600 font-bold">0</h2>
+                    <h2 id="rejectCount" class="text-red-600 font-bold">0</h2>
                 </div>
             </div>
     </header>
@@ -47,14 +47,19 @@
             <p class="text-lg"><span> 0 </span>Jobs</p>
         </div>
         <div class="main-buttons pt-5">
-            <button id="all-filter-btn" class="btn btn-soft btn-info w-20">All</button>
-            <button id="interview-filter-btn" class="btn btn-soft btn-info w-20">Interview</button>
-            <button id="reject-filter-btn" class="btn btn-soft btn-info w-20">Reject</button>
+            <button onclick="toggleStyle('all-filter-btn')" id="all-filter-btn" class="btn btn-soft btn-info w-20">All</button>
+            <button onclick="toggleStyle('interview-filter-btn')" id="interview-filter-btn" class="btn btn-soft btn-info w-20">Interview</button>
+            <button onclick="toggleStyle('reject-filter-btn')" id="reject-filter-btn" class="btn btn-soft btn-info w-20">Reject</button>
         </div>
+
+
+        <section id="filteredSection" class="hidden">
+           </section>
+
 
         <!-- all-section  -->
 
-        <section id="all-section">
+        <section id="allSection">
                 <!-- card-1  -->
       <div class="jobcard flex justify-between bg-white p-4  my-5 rounded-sm">
         <!-- part-1  -->
@@ -64,9 +69,9 @@
                      <p class="jobTitle text-gray-600">React Native Developer</p>
                 </div>
                 <div class="md:flex gap-4 my-4">
-                    <p class="workPlace px-2">Remote</p>
+                    <p class="workplace px-2">Remote</p>
                     <p class="jobType px-2">. Full-Time .</p>
-                    <p class="Salary px-2">$130000-$175000</p>
+                    <p class="salary px-2">$130000-$175000</p>
                 </div>
                 <div class=" mb-4">
                     <p class="condition rounded-sm bg-gray-200 w-35 px-3 py-1">Not Applied</p>
@@ -91,9 +96,9 @@
                      <p class="jobTitle text-gray-600">Web Designer & Developer</p>
                 </div>
                 <div class="md:flex gap-4 my-4">
-                    <p class="workPlace px-2">Los Angeles,CA</p>
+                    <p class="workplace px-2">Los Angeles,CA</p>
                     <p class="jobType px-2">. Part-Time .</p>
-                    <p class="Salary px-2">$80000-$120000</p>
+                    <p class="salary px-2">$80000-$120000</p>
                 </div>
                 <div class=" mb-4">
                     <p class="condition rounded-sm bg-gray-200 w-35 px-3 py-1">Not Applied</p>
@@ -118,9 +123,9 @@
                      <p class="jobTitle text-gray-600">Data Visualization Specialist</p>
                 </div>
                 <div class="md:flex gap-4 my-4">
-                    <p class="workPlace px-2">Boston, MA</p>
+                    <p class="workplace px-2">Boston, MA</p>
                     <p class="jobType px-2">. Full-Time .</p>
-                    <p class="Salary px-2">$125000-$165000</p>
+                    <p class="salary px-2">$125000-$165000</p>
                 </div>
                 <div class=" mb-4">
                     <p class="condition rounded-sm bg-gray-200 w-35 px-3 py-1">Not Applied</p>
@@ -145,9 +150,9 @@
                      <p class="jobTitle text-gray-600">Backend Developer</p>
                 </div>
                 <div class="md:flex gap-4 my-4">
-                    <p class="workPlace px-2">Seattle, WA</p>
+                    <p class="workplace px-2">Seattle, WA</p>
                     <p class="jobType px-2">. Full-Time .</p>
-                    <p class="Salary px-2">$140000-$190000</p>
+                    <p class="salary px-2">$140000-$190000</p>
                 </div>
                 <div class=" mb-4">
                     <p class="condition rounded-sm bg-gray-200 w-35 px-3 py-1">Not Applied</p>
@@ -172,9 +177,9 @@
                      <p class="jobTitle text-gray-600">UI/UX Engineer</p>
                 </div>
                 <div class="md:flex gap-4 my-4">
-                    <p class="workPlace px-2">Austin, TX</p>
+                    <p class="workplace px-2">Austin, TX</p>
                     <p class="jobType px-2">. Fulltime .</p>
-                    <p class="Salary px-2">$110000-$150000</p>
+                    <p class="salary px-2">$110000-$150000</p>
                 </div>
                 <div class=" mb-4">
                     <p class="condition rounded-sm bg-gray-200 w-35 px-3 py-1">Not Applied</p>
@@ -199,9 +204,9 @@
                      <p class="jobTitle text-gray-600">JavaScript Developer</p>
                 </div>
                 <div class="md:flex gap-4 my-4">
-                    <p class="workPlace px-2">New York, NY</p>
+                    <p class="workplace px-2">New York, NY</p>
                     <p class="jobType px-2">. Full-Time .</p>
-                    <p class="Salary px-2">$130000-$170000</p>
+                    <p class="salary px-2">$130000-$170000</p>
                 </div>
                 <div class=" mb-4">
                     <p class="condition rounded-sm bg-gray-200 w-35 px-3 py-1">Not Applied</p>
@@ -226,9 +231,9 @@
                      <p class="jobTitle text-gray-600">Full Stack Engineer</p>
                 </div>
                 <div class="md:flex gap-4 my-4">
-                    <p class="workPlace px-2">Remote</p>
+                    <p class="workplace px-2">Remote</p>
                     <p class="jobType px-2">. Full-Time .</p>
-                    <p class="Salary px-2">$120000-$160000</p>
+                    <p class="salary px-2">$120000-$160000</p>
                 </div>
                 <div class=" mb-4">
                     <p class="condition rounded-sm bg-gray-200 w-35 px-3 py-1">Not Applied</p>
@@ -253,9 +258,9 @@
                      <p class="jobTitle text-gray-600">Senior Frontend Developer</p>
                 </div>
                 <div class="md:flex gap-4 my-4">
-                    <p class="workPlace px-2">San Francisco,CA</p>
+                    <p class="workplace px-2">San Francisco,CA</p>
                     <p class="jobType px-2">. Full-Time .</p>
-                    <p class="Salary px-2">$130000-$175000</p>
+                    <p class="salary px-2">$130000-$175000</p>
                 </div>
                 <div class=" mb-4">
                     <p class="condition rounded-sm bg-gray-200 w-35 px-3 py-1">Not Applied</p>
