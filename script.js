@@ -142,9 +142,22 @@ mainContainer.addEventListener('click', function(event){
 })
 
 // Content Rendering 
-
+ 
 function renderInterview(){
         filterSection.innerHTML = ''
+
+        if(interviewList.length == 0){
+        filterSection.innerHTML = `
+            <div class="text-center my-10">
+                <img src="assets/jobs.png" class="mx-auto w-40 mb-4">
+                <h1 class=" text-3xl font-bold p-5">No Jobs Available</h1>
+                <p class="text-gray-500 text-lg">
+                    Check back soon for new job opportunities
+                </p>
+            </div>
+        `
+    }
+
 
         for(let interview of interviewList){
             let div = document.createElement('div')
@@ -181,6 +194,18 @@ function renderInterview(){
 }
 function renderReject(){
         filterSection.innerHTML = ''
+
+         if(rejectList.length == 0){
+        filterSection.innerHTML = `
+            <div class="text-center my-10">
+                <img src="assets/jobs.png" class="mx-auto w-40 mb-4">
+                <h1 class=" text-3xl font-bold p-5">No Jobs Available</h1>
+                <p class="text-gray-500 text-lg">
+                    Check back soon for new job opportunities
+                </p>
+            </div>
+        `
+    }
        
         for(let reject of rejectList){
             let div = document.createElement('div')
@@ -215,5 +240,4 @@ function renderReject(){
         }  
 
 }
-
 
