@@ -11,12 +11,16 @@ const allSection = document.getElementById('allSection')
 const mainContainer = document.querySelector('main')
 const filterSection = document.getElementById('filteredSection')
 
+// Calculating Realtime Changes 
+
 function calculateCount(){
     total.innerText = allSection.children.length
     interviewCount.innerText = interviewList.length
     rejectCount.innerText = rejectList.length
 }
 calculateCount()
+
+// Toggling of the featured three buttons 
 
 function toggleStyle(id){
 
@@ -39,6 +43,8 @@ function toggleStyle(id){
     }
     
 }
+
+// Delegation of the content based on interview and reject button clicking 
 
 mainContainer.addEventListener('click',function(event){
     if(event.target.classList.contains('interview-btn')){
@@ -120,6 +126,23 @@ mainContainer.addEventListener('click',function(event){
     
 })
 
+// Delete-Btn 
+mainContainer.addEventListener('click', function(event){
+    if(event.target.classList.contains('btnDelete')){
+
+        const card = event.target.parentNode.parentNode 
+        const jobTitle = card.querySelector('.jobTitle').innerText
+
+        interviewList = interviewList.filter(item => item.jobTitle != jobTitle)
+        rejectList = rejectList.filter(item => item.jobTitle != jobTitle)
+
+        card.parentNode.removeChild(card) 
+        calculateCount()
+    }
+})
+
+// Content Rendering 
+
 function renderInterview(){
         filterSection.innerHTML = ''
 
@@ -134,12 +157,12 @@ function renderInterview(){
                      <p class="jobTitle text-gray-600">${interview.jobTitle}</p>
                 </div>
                 <div class="md:flex gap-4 my-4">
-                    <p class="workPlace px-2">${interview.workplace}</p>
-                    <p class="jobType px-2">${interview.jobTitle}</p>
-                    <p class="Salary px-2">${interview.salary}</p>
+                    <p class="workplace px-2">${interview.workplace}</p>
+                    <p class="jobType px-2">${interview.jobType}</p>
+                    <p class="salary px-2">${interview.salary}</p>
                 </div>
                 <div class=" mb-4">
-                    <p class="condition rounded-sm bg-gray-200 w-35 px-3 py-1">Not Applied</p>
+                    <p class="condition rounded-sm bg-gray-200 w-35 px-3 py-1">${interview.condition}</p>
                     <p class="detail mt-2">${interview.detail}</p>
                 </div>
                 <div>
@@ -149,7 +172,7 @@ function renderInterview(){
             </div>
             <!-- part-2  -->
             <div>
-                <button class="btnDelete "><i class="fa-solid fa-trash-can"></i></button>
+                <button class="btnDelete"><i class="fa-solid fa-trash-can"></i>Delete</button>
             </div>
             `
             filterSection.appendChild(div)
@@ -170,12 +193,12 @@ function renderReject(){
                      <p class="jobTitle text-gray-600">${reject.jobTitle}</p>
                 </div>
                 <div class="md:flex gap-4 my-4">
-                    <p class="workPlace px-2">${reject.workplace}</p>
-                    <p class="jobType px-2">${reject.jobTitle}</p>
-                    <p class="Salary px-2">${reject.salary}</p>
+                    <p class="workplace px-2">${reject.workplace}</p>
+                    <p class="jobType px-2">${reject.jobType}</p>
+                    <p class="salary px-2">${reject.salary}</p>
                 </div>
                 <div class=" mb-4">
-                    <p class="condition rounded-sm bg-gray-200 w-35 px-3 py-1">Not Applied</p>
+                    <p class="condition rounded-sm bg-gray-200 w-35 px-3 py-1">${reject.condition}</p>
                     <p class="detail mt-2">${reject.detail}</p>
                 </div>
                 <div>
@@ -185,7 +208,7 @@ function renderReject(){
             </div>
             <!-- part-2  -->
             <div>
-                <button class="btnDelete "><i class="fa-solid fa-trash-can"></i></button>
+                <button class="btnDelete"><i class="fa-solid fa-trash-can"></i>Delete</button>
             </div>
             `
             filterSection.appendChild(div)
