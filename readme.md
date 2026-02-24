@@ -2,6 +2,17 @@
 
 Ans :
 
+getElementById : It actually selects an element based on given Id and every Id is unique and every id needs 
+                 a different selector .
+
+getElementsByClassname : It is a selector to select elements based on their class name . We can select
+                         multiple elements based on their classname.
+
+querySelector : This selector is mainly use to select the element directly using css selector . It only first
+                or the nearest element based on the selector .
+
+querySelectorAll : This selector is mainly use to select all elements matching css selector .          
+
 2. How do you create and insert a new element into the DOM?
 
 Ans :
