@@ -3,6 +3,7 @@ let rejectList = []
 let currentStatus =''
 
 let total = document.getElementById('totalCount')
+let total2 = document.getElementById('total2')
 let interviewCount = document.getElementById('interviewCount')
 let rejectCount = document.getElementById('rejectCount')
 
@@ -20,6 +21,9 @@ function calculateCount(){
     total.innerText = allSection.children.length
     interviewCount.innerText = interviewList.length
     rejectCount.innerText = rejectList.length
+
+        total2.innerText = allSection.children.length
+
 }
 calculateCount()
 
